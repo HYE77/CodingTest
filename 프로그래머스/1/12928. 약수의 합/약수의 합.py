@@ -1,5 +1,3 @@
 def solution(n):
-    alist = [i for i in range(1, n+1)]
-    ylist = list(filter(lambda x: n % x == 0, alist))
-    answer = sum(ylist)
-    return answer
+    k = sum(i for i in range(1, n//2 + 1) if n % i == 0)
+    return n + k
