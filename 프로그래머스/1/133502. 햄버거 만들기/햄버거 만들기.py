@@ -1,23 +1,3 @@
-# def solution(ingredient):
-#     answer = 0
-#     ingredient = ''.join([str(_) for _ in ingredient])
-#     while '1231' in ingredient:
-#         answer += ingredient.count('1231')
-#         ingredient = ingredient.replace('1231', '')
-    
-#     return answer
-
-
-# def solution(ingredient):
-#     answer = 0
-#     ingredient = ''.join([str(_) for _ in ingredient])
-#     while '1231' in ingredient:
-#         answer += 1
-#         index = ingredient.index('1231')
-#         ingredient = ingredient[0:index] + ingredient[index+4:]
-        
-#     return answer
-
 
 def solution(ingredient):
     answer = 0
