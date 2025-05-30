@@ -1,15 +1,11 @@
-import sys
-input = sys.stdin.readline
-
-N = int(input()) # kg
-
-ans = []
-
-for i in range(N//3 + 1):
-    for j in range(N//3 + 1):
-        if 5 * i + 3 * j == N:
-            ans.append(i+j)
-
-if not ans:
+N = int(input())
+ans = 0
+while N >= 0:
+    if N % 5 == 0:
+        ans += N//5
+        print(ans)
+        break
+    N -= 3
+    ans += 1
+else:
     print(-1)
-else: print(min(ans))
