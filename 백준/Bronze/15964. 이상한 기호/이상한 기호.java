@@ -6,8 +6,9 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		
-		int A = sc.nextInt();
-		int B = sc.nextInt();
+		long A = sc.nextLong();
+		
+		long B = sc.nextLong();
 		
 		System.out.println(cal(A, B));
 		
@@ -15,8 +16,8 @@ public class Main {
 
 	}
 	
-	public static int cal(int A, int B) {
-		int ans = (A+B)*(A-B);
+	public static long cal(long A, long B) {
+		long ans = (A+B)*(A-B);
 		return ans;
 	}
 
