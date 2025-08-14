@@ -1,53 +1,61 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class Solution {
+class Solution {
 
-	public static void main(String[] args) {
+	public static void main(String args[]) throws Exception {
+
 		Scanner sc = new Scanner(System.in);
-		
-		int T = sc.nextInt();
-		
-		for (int t = 1; t <= T; t++) {
-			int a = sc.nextInt();
-			int b = sc.nextInt();
-			
-			int[] arr1 = new int[a];
-			int[] arr2 = new int[b];
-			
-			for (int i = 0; i < a; i++) {
-				arr1[i] = sc.nextInt();
-			}
-			
-			for (int j = 0; j < b; j++) {
-				arr2[j] = sc.nextInt();
-			}
-			
-			if (a < b) { // a > b 하게 만들자
-				int[] temp = Arrays.copyOf(arr1, a);
-				arr1 = Arrays.copyOf(arr2, b);
-				arr2 = temp;
-				
-				int tempInt = a;
-				a = b;
-				b = tempInt;
+		int T;
+		T = sc.nextInt();
+
+		for (int test_case = 1; test_case <= T; test_case++) {
+
+//			값 받아오기
+			int N = sc.nextInt();
+			int M = sc.nextInt();
+
+			int[] numN = new int[N];
+			int[] numM = new int[M];
+
+			for (int i = 0; i < N; i++) {
+				numN[i] = sc.nextInt();
 			}
 
-			
-			int max = Integer.MIN_VALUE;
-			for (int i = 0; i < a-b+1; i++ )  {
-				int sum = 0;
-				for (int j = 0; j < b; j++) {
-					sum += arr2[j] * arr1[i+j];
+			for (int i = 0; i < M; i++) {
+				numM[i] = sc.nextInt();
+			}
+
+//			작은 크기의 배열을 돌면서 값 계산 > 최댓값 출력
+			int max = 0;
+
+//			N < M
+			if (N < M) {
+
+				for (int i = 0; i < M - N + 1; i++) {
+					int sum = 0;
+
+					for (int j = 0; j < N; j++) {
+						sum += numN[j] * numM[i+j];
+					}
+					max = Math.max(max, sum);
+
 				}
-				if (sum > max) max = sum;
-			}
-			
-			System.out.println("#" + t + " " + max);
-		}
-		
-		sc.close();
+			} 
+//			M < N
+			else {
+				for (int i = 0; i < N - M + 1; i++) {
+					int sum = 0;
 
+					for (int j = 0; j < M; j++) {
+						sum += numN[i+j] * numM[j];
+					}
+					max = Math.max(max, sum);
+				}
+			}
+
+			System.out.println("#" + test_case + " " + max);
+
+		}
 	}
 
 }
