@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;
+
+public class Main {
+	
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        BigInteger n = new BigInteger(st.nextToken());
+        BigInteger m = new BigInteger(st.nextToken());
+        
+        BigInteger ans = n.multiply(m);
+        
+        
+        bw.write(ans+"");
+        bw.flush();
+        br.close();
+        bw.close();
+    }
+}
