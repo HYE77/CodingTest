@@ -50,7 +50,7 @@ public class Main {
         	if (cur[0]+1 <= 100000 && cnt[cur[0]+1][0] >= cur[1]+1) q.add(new int[] {cur[0]+1, cur[1]+1});
         	
         	// 2X
-        	if (cur[0]*2 <= 100000 && cnt[cur[0]*2][0] >= cur[1]+1) q.add(new int[] {cur[0]*2, cur[1]+1});
+        	if (cur[0] != 0 && cur[0]*2 <= 100000 && cnt[cur[0]*2][0] >= cur[1]+1) q.add(new int[] {cur[0]*2, cur[1]+1});
         }
         
         bw.write(cnt[K][0] + "\n" + cnt[K][1]);
