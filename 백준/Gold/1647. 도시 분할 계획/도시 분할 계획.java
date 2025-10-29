@@ -32,7 +32,6 @@ public class Main {
         	parent[i] = i;
         }
         
-//        PriorityQueue<Edge> pq = new PriorityQueue<>();
         List<Edge> lst = new ArrayList<>();
         
         for (int i = 0; i < M; i++) {
@@ -73,3 +72,4 @@ public class Main {
     	return parent[n];
     }
 }
+
