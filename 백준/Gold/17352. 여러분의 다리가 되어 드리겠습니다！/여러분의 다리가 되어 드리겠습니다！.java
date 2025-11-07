@@ -1,54 +1,43 @@
-import java.util.*;
 import java.io.*;
-  
+import java.util.*;
+
 public class Main {
-	
-	static int N;
-	static List<int[]> edges;
-	static int[] parent;
-     
+    static int N;
+    static int[] parent;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
+        N = Integer.parseInt(br.readLine());
         
-        N = Integer.parseInt(br.readLine()); // 섬의 개수
-        
-        edges = new ArrayList<>();
-        for (int i = 0; i < N-2; i++) {
-        	st = new StringTokenizer(br.readLine());
-        	int from = Integer.parseInt(st.nextToken());
-        	int to = Integer.parseInt(st.nextToken());
-        	
-        	edges.add(new int[] {from, to});
+        parent = new int[N + 1];
+        for (int i = 1; i <= N; i++) parent[i] = i;
+
+        for (int i = 0; i < N - 2; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            union(a, b);
         }
-        
-        parent = new int[N+1];
-        for (int i = 1; i <= N; i++) {
-        	parent[i] = i;
-        }
-        
-        // Union Find
-        for (int[] edge : edges) {
-        	
-        	int xParent = findParent(edge[0]);
-        	int yParent = findParent(edge[1]);
-        	
-        	if (xParent != yParent) parent[xParent] = yParent;
-        }
-        
-        Set<Integer> pSet = new HashSet<>();
-        for (int i = 1; i <= N; i++) {
-        	pSet.add(findParent(i));
-        }
-        
-        System.out.println(pSet.toArray()[0] + " " + pSet.toArray()[1]);
-         
-        br.close();
+
+        Set<Integer> roots = new HashSet<>();
+        for (int i = 1; i <= N; i++) roots.add(find(i));
+
+        // 두 섬 출력 (오름차순)
+        Iterator<Integer> it = roots.iterator();
+        int first = it.next();
+        int second = it.next();
+        if (first > second) { int tmp = first; first = second; second = tmp; }
+        System.out.println(first + " " + second);
     }
-    
-    
-    static int findParent(int x) {
-    	if (parent[x] != x) parent[x] = findParent(parent[x]);
-    	return parent[x];
+
+    static int find(int x) {
+        if (parent[x] != x) parent[x] = find(parent[x]);
+        return parent[x];
+    }
+
+    static void union(int a, int b) {
+        a = find(a);
+        b = find(b);
+        if (a != b) parent[b] = a;
     }
 }
