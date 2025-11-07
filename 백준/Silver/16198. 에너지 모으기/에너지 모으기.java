@@ -6,7 +6,6 @@ public class Main {
 	static int N, ans;
 	static int[] arr;
 	static int[] original;
-//	static List<Integer> arr;
 	static boolean[] visited;
 	static int[] selected;
      
@@ -17,7 +16,6 @@ public class Main {
         N = Integer.parseInt(br.readLine());
         original = new int[N];
         arr = new int[N];
-//        arr = new ArrayList<>();
         selected = new int[N-2];
         visited = new boolean[N];
         
@@ -25,7 +23,6 @@ public class Main {
         for (int i = 0; i < N; i++) {
         	original[i] = Integer.parseInt(st.nextToken());
         	arr[i] = original[i];
-//        	arr.add(original[i]);
         }
         
         perm(0);        
@@ -75,4 +72,5 @@ public class Main {
     	
     	ans = Math.max(ans, score);
     }
+
 }
