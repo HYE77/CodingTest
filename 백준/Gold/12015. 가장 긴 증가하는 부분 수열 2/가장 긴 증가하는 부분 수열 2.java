@@ -14,10 +14,7 @@ public class Main {
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-
-        int[] dp = new int[N];
-        Arrays.fill(dp, 1);
-
+        
         int ans = 0;
         List<Integer> lis = new ArrayList<>();
         for (int i = 0; i < N; i++) {
@@ -34,4 +31,5 @@ public class Main {
         br.close();
     }
 }
+
 
