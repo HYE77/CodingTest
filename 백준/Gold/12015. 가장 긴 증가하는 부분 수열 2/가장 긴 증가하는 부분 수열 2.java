@@ -15,7 +15,6 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         
-        int ans = 0;
         List<Integer> lis = new ArrayList<>();
         for (int i = 0; i < N; i++) {
             if (lis.isEmpty() || lis.get(lis.size()-1) < arr[i]) lis.add(arr[i]);
@@ -31,5 +30,6 @@ public class Main {
         br.close();
     }
 }
+
 
 
