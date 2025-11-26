@@ -52,8 +52,9 @@ public class Main {
         for (int i = 1; i <= N; i++) parent[i] = i;
         
         long distSum = 0;
+        int groupCnt = N;
         
-        while (!pq.isEmpty()) {
+        while (!pq.isEmpty() || groupCnt > K) {
         	Edge e = pq.poll();
         	
         	int px = findParent(e.from);
@@ -69,9 +70,8 @@ public class Main {
         	else parent[px] = py;
         	
         	distSum += e.dist;
+        	groupCnt--;
         	
-        	// 모두 연결됐는지 확인
-        	if (check()) break;
         }
        
         System.out.println(distSum);
@@ -79,18 +79,7 @@ public class Main {
     }
     
     static int findParent(int k) {
-    	if (parent[k] != k) parent[k] = parent[parent[k]];
+    	if (parent[k] != k) parent[k] = findParent(parent[k]);
     	return parent[k];
-    }
-    
-    static boolean check() {
-    	Set<Integer> set = new HashSet<>();
-    	for (int i = 1; i <= N; i++) {
-    		set.add(findParent(i));
-    	}
-    	
-    	if (set.size() == K) return true;
-    	return false;
-    	
     }
 }
