@@ -4,7 +4,7 @@ import java.util.*;
 public class Main {
 
     static int N, tmp;
-    static int[] choice, team;
+    static int[] choice;
     static List<Integer> temp;
     static boolean[] visited;
 
@@ -19,7 +19,6 @@ public class Main {
             N = Integer.parseInt(br.readLine());
 
             choice = new int[N+1];
-//            team = new int[N+1];
             visited = new boolean[N+1];
 
             st = new StringTokenizer(br.readLine());
@@ -28,8 +27,6 @@ public class Main {
                 choice[i] = Integer.parseInt(st.nextToken());
             }
 
-//            Arrays.fill(team, -1);
-//            int teamCnt = 1;
             int ans = 0;
             for (int i = 1; i <= N; i++) {
                 if (!visited[i]) {
@@ -40,7 +37,6 @@ public class Main {
             }
 
             System.out.println(N-ans);
-//            System.out.println(Arrays.toString(team));
         }
 
         br.close();
