@@ -1,3 +1,4 @@
+import java.sql.Array;
 import java.util.*;
 import java.io.*;
 
@@ -65,7 +66,7 @@ public class Main {
     }
 
     static void bfs() {
-        Queue<Integer> q = new LinkedList<>();
+        Queue<Integer> q = new ArrayDeque<>();
         dist = new int[N + 1];
         Arrays.fill(dist, -1); // 거리를 -1로 초기화하여 방문 여부 체크
 
