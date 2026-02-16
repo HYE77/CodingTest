@@ -101,9 +101,8 @@ public class Main {
                 long nextGarbage = cur.garbage + (orgn[nr][nc] == 'g' ? 1 : 0);
                 long nextAdj = cur.adj + (isAdj[nr][nc] ? 1 : 0);
 
-                if (dist[nr][nc][0] > nextGarbage) {
-                    update(nr, nc, nextGarbage, nextAdj, pq);
-                } else if (dist[nr][nc][0] == nextGarbage && dist[nr][nc][1] > nextAdj) {
+                if (dist[nr][nc][0] > nextGarbage || 
+                        dist[nr][nc][0] == nextGarbage && dist[nr][nc][1] > nextAdj) {
                     update(nr, nc, nextGarbage, nextAdj, pq);
                 }
             }
