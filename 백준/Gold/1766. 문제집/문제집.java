@@ -31,18 +31,8 @@ public class Main {
             inDegrees[to]++;
         }
 
-        // 쉬운 문제부터 먼저 풀도록
-//        for (int from = 1; from < N; from++) {
-//            if (!adj[from].contains(from+1)) {
-//                adj[from].add(from+1);
-//                inDegrees[from+1]++;
-//            }
-//        }
-
         // 순서대로 정렬
         for (int i = 1; i <= N; i++) Collections.sort(adj[i]);
-
-//        System.out.println(Arrays.toString(inDegrees));
 
         // 위상정렬
         PriorityQueue<Integer> q = new PriorityQueue<>();
